@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hamza Kalaycı | Bilgisayar Mühendisliği Öğrencisi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--ink:#0a0c10;--muted:#2f3643;--line:#c9d0da;--link:#1d4ed8;
+  --tbg:#1e1f22;--tink:#e6e6e6;--tmut:#b3b9c4;--tyel:#d7e35f;--tblue:#8ab4ff;--tgrn:#8be9c3;--trow:#2c2d31;
+  color-scheme:light;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.75 "JetBrains Mono",ui-monospace,Menlo,monospace}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+header .wrap{display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:space-between;padding-top:42px;padding-bottom:10px}
+header strong{font-size:1.45rem;font-weight:700;letter-spacing:-.02em}
+nav{display:flex;flex-wrap:wrap;gap:6px 26px;align-items:center}
+nav a{color:var(--ink);font-weight:500}
+nav a:hover{color:var(--ink);text-decoration:none}
+nav a.ic{display:inline-flex;width:22px;height:22px}nav a.ic svg{width:100%;height:100%}nav .sep{width:1px;height:34px;background:var(--line)}
+#tema{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:2px 9px;font:inherit;cursor:pointer}
+.term{font-size:15px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);background:var(--tbg);color:var(--tink);border-radius:12px;margin:56px 0 70px;box-shadow:0 30px 60px -25px rgba(0,0,0,.45)}
+.term .l{padding:28px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #2f3136}
+.term .r{padding:26px 22px 22px}
+.pr{color:var(--tyel)}
+.cmd{color:var(--tblue)}
+.cm{color:var(--tmut);font-style:italic}
+.dim{color:var(--tmut)}
+.line{margin:0}
+.rows{margin:12px 0 14px;padding:0;list-style:none}
+.rows li{display:flex;gap:16px;padding:3px 10px 3px 24px;border-radius:6px;cursor:pointer;position:relative;color:#eceef2}
+.rows li .t{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rows li .d{color:var(--tmut)}
+.rows li.sel{background:var(--trow);color:var(--tgrn)}
+.rows li.sel::before{content:"❯";position:absolute;left:8px;color:var(--tyel)}
+.det{border-top:1px dashed #3a3c42;margin-top:12px;padding-top:10px;min-height:5.4em}
+.det p{margin:0;color:#eceef2}
+.det a{color:var(--tblue)}
+.cur{display:inline-block;width:8px;height:1.05em;background:var(--tyel);vertical-align:-.17em;animation:b 1.1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+section{padding:20px 0 46px}
+h2{font-size:1.15rem;font-weight:700;margin:0 0 16px;color:var(--ink)}
+h2::before{content:"## ";color:var(--link)}
+p{margin:0 0 14px;max-width:68ch}
+.list{list-style:none;margin:0;padding:0}
+.list li{display:grid;grid-template-columns:130px 1fr;gap:6px 20px;padding:8px 0;border-bottom:1px solid var(--line)}
+.list b{font-weight:500}
+.list span.dt{color:var(--muted)}
+.code{background:var(--tbg);color:var(--tink);border-radius:10px;padding:20px 22px;overflow-x:auto;font-size:14px;line-height:1.8;margin:0}
+.k{color:#c792ea}.s{color:#a5d68a}.c{color:var(--tmut);font-style:italic}.v{color:var(--tblue)}
+footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--muted);font-size:13px}
+@media(max-width:760px){.term{grid-template-columns:1fr}.term .l{border-right:0;border-bottom:1px solid #2f3136}.list li{grid-template-columns:1fr}header .wrap{padding-top:28px}.sep{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <strong>Hamza Kalaycı</strong>
+  <nav>
+    <a href="#projeler">Projeler</a>
+    <a href="#hakkimda">Hakkımda</a>
+    <a href="#deneyim">Deneyim</a>
+    <a href="#iletisim">İletişim</a>
+    <span class="sep"></span>
+    <a class="ic" href="https://github.com/HamzaKalayci" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    <a class="ic" href="https://www.linkedin.com/in/hamza-kalayci" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+    <a class="ic" href="mailto:kalaycihamza67@gmail.com" aria-label="E-posta" title="E-posta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="term" role="region" aria-label="Terminal özeti">
+    <div class="l">
+      <p class="line"><span class="pr">~ ❯</span> <span class="cmd">whoami</span></p>
+      <p class="line">hamza-kalayci</p>
+      <p class="line cm"># bilgisayar mühendisliği öğrencisi</p>
+      <p class="line cm"># .net geliştirici stajyeri</p>
+      <p class="line cm"># karabük üniversitesi</p>
+    </div>
+    <div class="r">
+      <p class="line"><span class="pr">~ ❯</span> <span class="cmd">ls</span> ./projeler <span class="dim">| head -5</span></p>
+      <ul class="rows" id="rows" role="listbox" aria-label="Projeler"></ul>
+      <div class="det" id="det" aria-live="polite"></div>
+      <p class="line" style="margin-top:10px"><span class="pr">~ ❯</span> <span class="cur"></span></p>
+    </div>
+  </div>
+
+  <section id="projeler">
+    <h2>projeler</h2>
+    <ul class="list">
+      <li><b><a href="https://github.com/HamzaKalayci/SSLDomainCheckerWeb">ssl-domain-checker-web</a></b><span>SSL ve domain bitiş tarihlerini izleyen ASP.NET Core MVC yönetim paneli. Çerez tabanlı giriş, BackgroundService ile otomatik kontrol, IMemoryCache ile veritabanısız çalışma.</span></li>
+      <li><b><a href="https://github.com/HamzaKalayci/SSL-Takip">ssl-takip</a></b><span>Birden fazla domainin SSL ve bitiş tarihini kontrol eden konsol uygulaması. Son 10 günde her gün Telegram ve e-posta uyarısı gönderir.</span></li>
+      <li><b>disfaji-takip</b><span>Yutma güçlüğü tedavisi için yapay zeka destekli mobil uygulama konsepti. TÜBİTAK 2209-A başvurusu, onay bekliyor.</span></li>
+      <li><b>teknofest-tarim</b><span>Tarım teknolojileri yarışması projesi. Gömülü sistemler ve kablosuz veri aktarımı üzerinde çalıştım. Onay bekliyor.</span></li>
+    </ul>
+  </section>
+
+  <section id="hakkimda">
+    <h2>hakkımda</h2>
+    <p><b>Neler yaptım:</b> Bir fikri çalışan bir sisteme çevirmeyi seviyorum ve bunu derslerin dışında da denedim. Siber Vatan programında siber güvenlik temellerini çalıştım, TÜBİTAK ve Teknofest projelerinde yapay zeka ve gömülü sistemlerle uğraştım, İHA ve sürü İHA çalışmalarında hem elektronik hem mekanik görev aldım.</p>
+    <p>Son dönemde odağım .NET. Omicron Bilişim Hizmetleri’nde stajyer olarak SSL ve domain bitiş tarihlerini izleyen iki uygulama yazdım: biri konsol, biri ASP.NET Core MVC web paneli. Bunların dışında T3 Vakfı’nda 100’den fazla ortaokul ve lise öğrencisine mentorluk yapıyorum, İŞKUR gençlik programında bir araştırma projesinde deney ve veri toplama işlerine katılıyorum.</p>
+    <p><b>Hedeflerim:</b> Teknik altyapımı ve analitik düşünmemi, büyük ölçekli kurumsal çözümler geliştiren bir ekipte gerçek sorumluluğa çevirmek. Şimdi bir stajla o ekiplerin çalışma düzenini içeriden görmek ve oradaki mühendislerden öğrenmek istiyorum.</p>
+  </section>
+
+  <section id="deneyim">
+    <h2>deneyim</h2>
+    <ul class="list">
+      <li><span class="dt">Tem – Ağu 2026</span><span><b>Yazılım Geliştirici Stajyeri</b>, Omicron Bilişim Hizmetleri, İstanbul. ASP.NET Core MVC ile domain takip uygulamaları, whois.trabis.gov.tr entegrasyonu, Bootstrap 5 arayüz.</span></li>
+      <li><span class="dt">Ara 2025 – şimdi</span><span><b>Eğitmen ve Mentor</b>, T3 Vakfı. 100’den fazla ortaokul ve lise öğrencisine mühendislik eğitimlerinde mentorluk.</span></li>
+      <li><span class="dt">Kas 2025 – şimdi</span><span><b>Araştırma Asistanı</b>, İŞKUR Gençlik Programı. Elektromanyetik dalgalarla madde özelliklerini belirleme projesinde deney düzeneği ve veri toplama.</span></li>
+      <li><span class="dt">Haz – Eyl 2024</span><span><b>Work and Travel</b>, ABD. Uluslararası ekiplerle çalışma.</span></li>
+      <li><span class="dt">2022 – 2027</span><span><b>Bilgisayar Mühendisliği (Lisans)</b>, Karabük Üniversitesi</span></li>
+    </ul>
+  </section>
+
+  <section id="sertifikalar">
+    <h2>sertifikalar</h2>
+    <ul class="list">
+      <li><span class="dt">Karabük Üni.</span><span>Database Design and Database Programming with SQL</span></li>
+      <li><span class="dt">BTK Akademi</span><span>Yapay Zekaya Giriş</span></li>
+      <li><span class="dt">Udemy</span><span>İHA-Drone Sistem Tasarımı ve Üretimi</span></li>
+      <li><span class="dt">Udemy</span><span>Etik Hacker Olma Eğitimi</span></li>
+    </ul>
+  </section>
+
+  <section id="iletisim">
+    <h2>iletişim</h2>
+    <p>Staj fırsatları ve iş fırsatları için yazabilirsiniz: <a href="mailto:kalaycihamza67@gmail.com">kalaycihamza67@gmail.com</a></p>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Hamza Kalaycı</div></footer>
+
+<script>
+var P=[
+ {d:'2026',t:'ssl-domain-checker-web: SSL ve domain izleme paneli',m:'MVC',x:'Kullanıcı girişi, domain yönetimi ve otomatik kontrol. BackgroundService ve IMemoryCache kullanıyor, veritabanı gerektirmiyor.',l:'https://github.com/HamzaKalayci/SSLDomainCheckerWeb',k:'ssl-domain-checker-web'},
+ {d:'2026',t:'ssl-takip: Telegram ve e-posta uyarılı konsol uygulaması',m:'C#',x:'Bitişe 10 gün kala her gün bildirim gönderir. .tr domainler için whois.trabis.gov.tr üzerinden TCP sorgusu yapar.',l:'https://github.com/HamzaKalayci/SSL-Takip',k:'ssl-takip'},
+ {d:'2026',t:'teknofest-tarim: tarım teknolojileri projesi',m:'IoT',x:'Gömülü sistemler, sensör entegrasyonu ve kablosuz veri aktarımı üzerinde çalıştım. Başvuru onay bekliyor.',k:'teknofest-tarim'},
+ {d:'2025',t:'disfaji-takip: yapay zeka destekli mobil sağlık uygulaması',m:'YZ',x:'Kamera ve poz tespiti ile egzersiz analizi. İki kişilik ekip, TÜBİTAK 2209-A başvurusu onay bekliyor.',k:'disfaji-takip'},
+ {d:'2024',t:'veritabani-sistemleri: Oracle Academy projesi',m:'SQL',x:'Karmaşık bir senaryonun ERD modellemesi ve Oracle üzerinde tablo, veri ve sorgu çalışmaları.',k:'veritabani-sistemleri'}
+];
+var ul=document.getElementById('rows'),det=document.getElementById('det'),cur=0;
+P.forEach(function(p,i){var li=document.createElement('li');li.setAttribute('role','option');li.tabIndex=0;
+ li.innerHTML='<span class="dt dim">'+p.d+'</span><span class="t">'+p.t+'</span><span class="d">'+p.m+'</span>';
+ li.addEventListener('mouseenter',function(){pick(i)});li.addEventListener('click',function(){pick(i)});
+ li.addEventListener('focus',function(){pick(i)});ul.appendChild(li);});
+function pick(i){cur=i;[].forEach.call(ul.children,function(li,k){li.classList.toggle('sel',k===i);li.setAttribute('aria-selected',k===i)});
+ var p=P[i];det.innerHTML='<p class="line"><span class="pr">~ ❯</span> <span class="cmd">cat</span> '+p.k+'/README</p><p>'+p.x+(p.l?' <a href="'+p.l+'">GitHub’da aç</a>':'')+'</p>';}
+pick(0);
+ul.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var n=Math.max(0,Math.min(P.length-1,cur+(e.key==='ArrowDown'?1:-1)));ul.children[n].focus();}});
+</script>
+</body>
+</html>
